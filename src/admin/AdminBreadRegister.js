@@ -29,6 +29,9 @@ export const AdminBreadRegister = () => {
     {
       title:'빵이름',field:'breadName'
     },
+      {
+          title:'빵사진', field: 'breadImage'
+      },
     {
       title:'빵사진', field: 'breadImage', editable: 'never',
       render: rowData => <img src={rowData.breadImage} style={{width: 50, borderRadius: '50%'}} alt="" />
@@ -65,7 +68,7 @@ export const AdminBreadRegister = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header">
-              <h5>상품</h5>
+              {/*<h5>상품</h5>*/}
             </div>
             <div className="col-sm-12">
               <div className="card">

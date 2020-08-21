@@ -55,7 +55,7 @@ export const AdminUserList = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header">
-              <h5>회원 리스트</h5>
+              {/*<h5>회원 리스트</h5>*/}
             </div>
             <div className="col-sm-12">
               <div className="card">

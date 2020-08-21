@@ -224,7 +224,7 @@ export const UpgradePlan = props => {
 					align="center"
 					variant="body2"
 				>
-					관리자 페이지 접속하였습니다.
+
 
 				</Typography>
 			</div>

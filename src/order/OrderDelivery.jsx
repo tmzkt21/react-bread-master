@@ -60,7 +60,7 @@ export const OrderDelivery = () => {
             <div className="container-fluid">
                 <div className="card">
                     <div className="card-header">
-                        <h5>배송 진행 목록</h5>
+                        {/*<h5>배송 진행 목록</h5>*/}
                     </div>
                     <div className="col-sm-12">
                         <div className="card">

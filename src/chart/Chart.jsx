@@ -59,7 +59,7 @@ export const Chart = props => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [chartValue, setChartValue] = useState("판매량/방문자 통계")
+  // const [chartValue, setChartValue] = useState("판매량/방문자 통계")
   return (
       <Card
           {...rest}
@@ -96,13 +96,10 @@ export const Chart = props => {
         <Divider />
         <CardContent>
           {chartType === "폴라형" ?
-              <ChartPolar
-                  chartValue = {chartValue}/>
+              <ChartPolar/>
               : chartType === "원형"
-                  ? <ChartDoughnut
-                      chartValue={chartValue}/>:
-                  <ChartBar
-                      chartValue={chartValue}/>}
+                  ? <ChartDoughnut/>:
+                  <ChartBar/>}
         </CardContent>
       </Card>
   );

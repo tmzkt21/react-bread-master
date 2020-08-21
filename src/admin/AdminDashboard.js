@@ -22,7 +22,7 @@ export const AdminDashboard = () => {
         container
         spacing={5}
       >
-        <Grid style={{position:'relative',left:"0%",width:'30%',height:'100%'}}
+        <Grid style={{position:'relative',left:"0%",width:'30%',height:'50%'}}
         >
           <Chart />
         </Grid>
@@ -35,12 +35,12 @@ export const AdminDashboard = () => {
           <OrderDelivery />
         </Grid>
 
-        <Grid style={{position:"relative",top:'-650px',width:'30%',height:'30%'}}
+        <Grid style={{position:"relative",top:'-600px',width:'30%',height:'70%'}}
         >
           <AdminUserList />
         </Grid>
 
-        <Grid style={{position:'relative',left:"2%",width:'30%',height:'22%',top:'-620px'}}
+        <Grid style={{position:'relative',left:"2%",width:'30%',height:'22%',top:'-570px'}}
         >
           <AdminBreadRegister />
         </Grid>
