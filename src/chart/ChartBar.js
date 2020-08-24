@@ -34,11 +34,13 @@ const ChartBar = props => {
         labels: totalKey,
         datasets: [
             {
-                //label: totalKey,
+                label:'주문수',
                 data: totalValue,
                 backgroundColor: 'rgba(120,29,29,0.3)',
                 borderWidth: 4,
-                LineTension: 0
+                LineTension: 0,
+                xPadding:20,
+                yPadding:20,
             }
         ]
     }

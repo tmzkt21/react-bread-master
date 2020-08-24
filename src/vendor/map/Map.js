@@ -1,5 +1,5 @@
 import React,{useState,useCallback,useRef} from "react";
-import { GoogleMap,useLoadScript,Marker,InfoWindow,} from "@react-google-maps/api";
+import {GoogleMap, useLoadScript, Marker, InfoWindow, Polyline,} from "@react-google-maps/api";
 import usePlacesAutocomplete, {getGeocode,getLatLng,getZipCode} from "use-places-autocomplete";
 import Geocode from 'react-geocode'
 import {Combobox,ComboboxInput, ComboboxPopover,ComboboxList, ComboboxOption,} from "@reach/combobox";
@@ -9,11 +9,8 @@ import "@reach/combobox/styles.css";
 import {Button, Card, CardActions} from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import {makeStyles} from "@material-ui/styles";
-
 const MAP_KEY='AIzaSyAdb4BpT5FdcmwNVkmh88DHC5n4SaWewRA';
-
 const libraries = ["places"];
-
 const mapContainerStyle = {
   width: "100%",
   height: "750px",
@@ -181,8 +178,6 @@ export const Map = () =>{
         </div>
     );
   }
-
-
   return (
       <>
         <div className="container">
@@ -218,7 +213,22 @@ export const Map = () =>{
                     onClick={onMapClick}
                     onLoad={onMapLoad}
                 >
-
+                    <Polyline
+                    path={[selected,searchLocation]}
+                    visible={true}
+                    // visible  text 는 지워지지만 공간은 여전히 점유하고 있다
+                        options={{
+                            strokeColor:"#fa0a1a",
+                            strokeOpacity: 1,
+                            strokeWeight: 3,
+                            icons:[
+                                {icon: {path:window.google.maps.SymbolPath.default},
+                                    offset:"0",
+                                    repeat:"40px"},
+                            ]
+                        }}
+                    >
+                    </Polyline>
                   {
                     currentPosition.lat ?
                         <Marker

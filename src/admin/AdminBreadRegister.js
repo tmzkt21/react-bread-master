@@ -33,9 +33,16 @@ export const AdminBreadRegister = () => {
           title:'빵사진', field: 'breadImage'
       },
     {
-      title:'빵사진', field: 'breadImage', editable: 'never',
+      title:'빵사진보기용', field: 'breadImage', editable: 'never',
       render: rowData => <img src={rowData.breadImage} style={{width: 50, borderRadius: '50%'}} alt="" />
     },
+      {
+          title:'빵디테일사진', field: 'breadImage'
+      },
+      {
+          title:'빵사진보기용', field: 'breadImage', editable: 'never',
+          render: rowData => <img src={rowData.breadImage} style={{width: 50, borderRadius: '50%'}} alt="" />
+      },
     {
       title:'빵가격',field:'breadPrice'
     },
@@ -91,7 +98,7 @@ export const AdminBreadRegister = () => {
             color="primary"
             size="small"
             variant="text"
-            href="/breadList"
+            href="/productRegistration"
         >
           전체보기<ArrowRightIcon/>
         </Button>
