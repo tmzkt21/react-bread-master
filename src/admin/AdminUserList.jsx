@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button} from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import axios from "axios";
-import List from '../vendor/List'
+import MaterialTable from "material-table";
 
 export const AdminUserList = () => {
   const [data,setData] = useState([])
@@ -55,7 +55,6 @@ export const AdminUserList = () => {
         <div className="container-fluid">
           <div className="card">
             <div className="card-header">
-              {/*<h5>회원 리스트</h5>*/}
             </div>
             <div className="col-sm-12">
               <div className="card">
@@ -66,7 +65,20 @@ export const AdminUserList = () => {
             <div className="card-body">
               <div className="clearfix"/>
               <div id="batchDelete" className="category-table user-list order-table coupon-list-delete">
-                <List title={"회원"} data={data} columns={columns} editable={editable} />
+                <MaterialTable
+                    title={"회원"}
+                    data={data}
+                    columns={columns}
+                    editable={editable}
+                    options={{
+                        headerStyle: {
+                            backgroundColor: '#01579b',
+                            color: '#FFF'
+                        },
+                        rowStyle: {
+                            backgroundColor: '#EEE',
+                        }
+                    }}/>
               </div>
             </div>
           </div>
@@ -75,7 +87,7 @@ export const AdminUserList = () => {
             color="primary"
             size="small"
             variant="text"
-            href="/userList"
+            href="/user-list"
         >
           전체보기<ArrowRightIcon/>
         </Button>

@@ -40,8 +40,8 @@ export const AdminBreadRegister = () => {
           title:'빵디테일사진', field: 'breadImage'
       },
       {
-          title:'빵사진보기용', field: 'breadImage', editable: 'never',
-          render: rowData => <img src={rowData.breadImage} style={{width: 50, borderRadius: '50%'}} alt="" />
+          title:'빵사진보기용', field: 'breadImageDetail', editable: 'never',
+          render: rowData => <img src={rowData.breadImageDetail} style={{width: 50, borderRadius: '50%'}} alt="" />
       },
     {
       title:'빵가격',field:'breadPrice'
@@ -86,10 +86,19 @@ export const AdminBreadRegister = () => {
             <div className="card-body">
               <div className="clearfix"/>
               <div id="batchDelete" className="category-table user-list order-table coupon-list-delete">
-                <MaterialTable title={"빵리스트"}
+                  <MaterialTable title={"빵리스트"}
                                data={data}
                                columns={columns}
-                               editable={editable} />
+                               editable={editable}
+                                 options={{
+                                     headerStyle: {
+                                         backgroundColor: '#01579b',
+                                         color: '#FFF'
+                                     },
+                                     rowStyle: {
+                                         backgroundColor: '#EEE',
+                                     }
+                                 }}/>
               </div>
             </div>
           </div>

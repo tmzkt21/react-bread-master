@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
-import List from '../vendor/List'
+import MaterialTable from "material-table";
 
 const OrderDeliveryTypes = {REQUEST: 'Chart/REQUEST'}
 const OrderDeliveryRequest = action => ({type: OrderDeliveryTypes.REQUEST, payload: action.payload})
@@ -60,7 +60,6 @@ export const OrderDelivery = () => {
             <div className="container-fluid">
                 <div className="card">
                     <div className="card-header">
-                        {/*<h5>배송 진행 목록</h5>*/}
                     </div>
                     <div className="col-sm-12">
                         <div className="card">
@@ -71,7 +70,11 @@ export const OrderDelivery = () => {
                     <div className="card-body">
                         <div className="clearfix"/>
                         <div id="batchDelete" className="category-table user-list order-table coupon-list-delete">
-                            <List title={"배송"} data={data} columns={columns} editable={editable} />
+                            <MaterialTable
+                                title={"배송"}
+                                data={data}
+                                columns={columns}
+                                editable={editable} />
                         </div>
                     </div>
                 </div>
