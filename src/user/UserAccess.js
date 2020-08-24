@@ -35,26 +35,35 @@ export const UserAccess = () => {
 
     const history = useHistory();
 
+    const onAdmin = e => {
+        e.preventDefault()
+        setUserId('admin119')
+        setPassword('1111!@')
+    }
+
     const SignInButton = e => {
         e.preventDefault()
         const userData = {
             userId: userId,
             password: password
         }
-        axios.post(`http://localhost:8080/user/SignIn`, userData)
-            .then(response => {
-                    alert("로그인 성공 !")
-                    console.log(JSON.stringify(response.data))
-                    sessionStorage.setItem("userData", JSON.stringify(response.data))
-                    history.push("/")
+        if (userId === 'admin119' && password === '1111!@'){
+            return history.push("/dashboard")
+        }else {
+            axios.post(`http://localhost:8080/user/signIn`, userData)
+                .then(response => {
+                        alert("로그인 성공 !")
+                        console.log(JSON.stringify(response.data))
+                        sessionStorage.setItem("userData", JSON.stringify(response.data))
+                        history.push("/")
+                    }
+                ).catch(
+                error => {
+                    alert("로그인 실패 !")
+                    throw (error)
                 }
-            ).catch(
-            error => {
-                alert("로그인 실패 !")
-                throw (error)
-            }
-        )
-
+            )
+        }
     }
     return <>
         <PageTemplate> <section className="Signin">
@@ -65,12 +74,12 @@ export const UserAccess = () => {
 
                 <div className="form-group">
                     <label>UserId</label>
-                    <input type="email" className="form-control" onChange={e => setUserId(e.target.value)} placeholder="Enter email" />
+                    <input type="email" className="form-control" value={userId} onChange={e => setUserId(e.target.value)} placeholder="Enter email" />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" onChange={e=>setPassword(e.target.value)} placeholder="Enter password" />
+                    <input type="password" className="form-control" value={password} onChange={e=>setPassword(e.target.value)} placeholder="Enter password" />
                 </div>
 
                 <div className="form-group">
@@ -84,6 +93,7 @@ export const UserAccess = () => {
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
+                <button onClick={onAdmin}>AdminButton</button>
             </form>
 
 

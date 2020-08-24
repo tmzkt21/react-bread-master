@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {Bar} from 'react-chartjs-2'
 import axios from 'axios'
-import {string} from "prop-types";
+import data from "../vendor/map/data";
 
 const ChartBar = props => {
     const [totalKey,setTotalKey] = useState([]);
-    const [totalValue,setTotalValue] =useState([]);
+    const [totalValue,setTotalValue] =useState( parseInt([]));
     const [name,setName] = useState('')
 
     const chartHandle = e => {
@@ -15,26 +15,26 @@ const ChartBar = props => {
                 alert("성공" + res.data)
                 const keyContainer =[];
                 const valueContainer  = [];
+                console.log(res.data)
                 Object.entries(res.data).forEach(([key,value])=>{
                     console.log("밸류값"+value)
                     keyContainer.push(key)
                     valueContainer.push(value)
-                    setTotalKey(keyContainer);
-                    setTotalValue(valueContainer)
-                    totalValue.split(',').map(Number)
-                    console.log(totalValue)
                 })
+                    setTotalKey(keyContainer);
+                    setTotalValue(valueContainer);
             })
             .catch((err)=>{
                 alert("실패")
                 throw err;
             })
     }
+    console.log(totalValue)
     const chartData = {
-        labels: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        labels: totalKey,
         datasets: [
             {
-                label: totalKey,
+                //label: totalKey,
                 data: totalValue,
                 backgroundColor: 'rgba(120,29,29,0.3)',
                 borderWidth: 4,

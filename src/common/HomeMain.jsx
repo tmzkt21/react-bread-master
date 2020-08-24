@@ -94,11 +94,6 @@ export const Navigation = () => {
 								mypage
 							</a>
 						</li>
-						<li>
-							<a href="dashboard" className="page-scroll">
-								ADMIN
-							</a>
-						</li>
 					</ul>
 				</div>
 			</div>
